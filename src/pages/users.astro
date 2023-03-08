@@ -1,0 +1,27 @@
+---
+interface Character {
+  id: number;
+  name: string;
+  status: string;
+  species: string;
+  gender: string;
+  image: string;
+}
+
+const res = await fetch('https://rickandmortyapi.com/api/character');
+const data = await res.json();
+const characters: Character[] = data.results;
+---
+
+<h1>Hola jorge</h1>
+<p>Quieres un globito?</p>
+<ul>
+  {
+    characters.map((el) => (
+      <li>
+        <h1>{el.name}</h1>
+        <img src={el.image} alt={el.name} />
+      </li>
+    ))
+  }
+</ul>
